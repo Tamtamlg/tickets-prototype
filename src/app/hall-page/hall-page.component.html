@@ -1,0 +1,17 @@
+<svg viewBox="0 0 1000 1000">
+  <svg:g *ngFor="let item of coordinates">
+    <svg:circle 
+      #place
+      cx="0" 
+      cy="0" 
+      r="15" 
+      class="place" 
+      [attr.transform]="'translate(' + item.x + ',' + item.y + ')'" 
+      [attr.id]="item.row + '_' + item.place"
+      [attr.data-row]="item.row"
+      [attr.data-place]="item.place"
+      matTooltip="Ряд {{item.row}}, место {{item.place}}"
+      (click)="openDialog(place)">
+    </svg:circle>
+  </svg:g>
+</svg>

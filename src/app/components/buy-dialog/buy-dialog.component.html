@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Купить билет?</h2>
+<mat-dialog-content>Ряд {{data.row}}, место {{data.place}}</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-flat-button color="warn" mat-dialog-close class="btn btn-secondary">No</button>
+  <button mat-flat-button [mat-dialog-close]="true" class="btn btn-info">Yes</button>
+</mat-dialog-actions>

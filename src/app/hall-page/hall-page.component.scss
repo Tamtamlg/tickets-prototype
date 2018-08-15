@@ -1,0 +1,11 @@
+.place {
+  fill: lightskyblue;
+  cursor: pointer;
+  &:hover {
+    fill: lightgreen
+  }
+}
+
+.place-busy {
+  fill: gray;
+}
