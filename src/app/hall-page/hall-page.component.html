@@ -1,17 +1,34 @@
-<svg viewBox="0 0 1000 1000">
-  <svg:g *ngFor="let item of coordinates">
-    <svg:circle 
-      #place
-      cx="0" 
-      cy="0" 
-      r="15" 
-      class="place" 
-      [attr.transform]="'translate(' + item.x + ',' + item.y + ')'" 
-      [attr.id]="item.row + '_' + item.place"
-      [attr.data-row]="item.row"
-      [attr.data-place]="item.place"
-      matTooltip="Ряд {{item.row}}, место {{item.place}}"
-      (click)="openDialog(place)">
-    </svg:circle>
-  </svg:g>
-</svg>
+<div class="scene">
+  <svg viewBox="0 0 1000 1000">
+    <svg:g *ngFor="let item of coordinates">
+      <svg:circle 
+        #place
+        cx="0" 
+        cy="0" 
+        r="15" 
+        [attr.fill]="'#' + item.color"
+        [attr.stroke]="'#' + item.color"
+        class="place" 
+        [attr.transform]="'translate(' + item.x + ',' + item.y + ')'" 
+        [attr.id]="item.row + '_' + item.place"
+        [attr.data-row]="item.row"
+        [attr.data-place]="item.place"
+        [attr.data-price]="item.price"
+        [ngClass]="{'disabled': item.price === '0.00'}"
+        (click)="selectPlace(place)">
+      </svg:circle>
+    </svg:g>
+    <svg:text *ngFor="let item of numCoordinatesLeft" #leftnumber>
+      <tspan [attr.x]="item.x - 50" [attr.y]="item.y - (-5)" class="svg-text" [attr.data-row]="item.num">{{item.num}}</tspan>
+    </svg:text>
+    <svg:text *ngFor="let item of numCoordinatesRight">
+      <tspan [attr.x]="item.x - (-40)" [attr.y]="item.y - (-5)" class="svg-text" [attr.data-row]="item.num">{{item.num}}</tspan>
+    </svg:text>
+    <svg:g >
+      <rect attr.width={{screenCoordinates.width}} height="10" x="100" y="990" rx="5" fill="#252525" class="svg-screen"></rect>
+    </svg:g>
+    <svg:text>
+      <tspan x="490" y="980" class="svg-screen-text" fill="#252525">СЦЕНА</tspan>
+    </svg:text>
+  </svg>
+</div>

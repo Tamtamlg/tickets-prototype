@@ -1,11 +1,32 @@
 .place {
-  fill: lightskyblue;
   cursor: pointer;
-  &:hover {
-    fill: lightgreen
-  }
+  stroke-width: 0;
+}
+
+.selected {
+  stroke-width: 3;
+  fill: #fff;
+}
+
+.disabled {
+  cursor: default;
 }
 
 .place-busy {
   fill: gray;
+}
+
+.svg-text {
+  // fill: black;
+  font-weight: bold;
+}
+
+.hovered {
+  fill: red;
+}
+
+.bg {
+  background: url('../../assets/bg.jpg')top left no-repeat;
+  background-size: contain;
+
 }
